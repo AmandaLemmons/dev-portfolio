@@ -56,6 +56,5 @@ gem 'devise', '~> 4.2'
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
 gem 'copy_right_view_tool', git: 'https://github.com/AmandaLemmons/copy_right_view_tool'
-
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
