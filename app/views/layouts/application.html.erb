@@ -9,18 +9,15 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
   </head>
-
   <body>
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <%= render partial: "shared/applicaiton_nav" %>
 
-      <%= login_helper %>
+      <%= render partial: "shared/applicaiton_nav" %>
 
       <%= yield %>
 
-      <%= copyright_generator %>
+      <%= render partial: "shared/application_footer" %>
 
       <%= source_helper("application") %>
     </div>
