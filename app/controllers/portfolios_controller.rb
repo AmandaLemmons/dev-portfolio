@@ -36,7 +36,6 @@ class PortfoliosController < ApplicationController
 
   def create
     @portfolio_item = Portfolio.new(portfolio_item_params)
-
     respond_to do |format|
       if @portfolio_item.save
         format.html { redirect_to portfolios_path, notice: 'portfolio was successfully created.' }
@@ -74,6 +73,8 @@ class PortfoliosController < ApplicationController
       params.require(:portfolio).permit(:title,
                                         :body,
                                         :subtitle,
+                                        :main_image,
+                                        :thumb_image,
                                         technologies_attributes:[:name])
     end
 end
