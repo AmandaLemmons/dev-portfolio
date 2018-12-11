@@ -9,8 +9,10 @@ class BlogsController < ApplicationController
     @page_title = "My Portfolio Blog"
   end
 
-
   def show
+    @blog = Blog.includes(:comments).friendly.find(params[:id])
+    @comment = Comment.new
+
     @page_title = @blog.title
     @seo_keywords = @blog.body
   end
@@ -21,7 +23,6 @@ class BlogsController < ApplicationController
 
   def edit
   end
-
 
   def create
     @blog = Blog.new(blog_params)
@@ -34,7 +35,6 @@ class BlogsController < ApplicationController
       end
     end
   end
-
 
   def update
     respond_to do |format|
@@ -63,12 +63,10 @@ class BlogsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_blog
       @blog = Blog.friendly.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
       params.require(:blog).permit(:title, :body)
     end
