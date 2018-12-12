@@ -5,7 +5,7 @@ class BlogsController < ApplicationController
 
 
   def index
-    @blogs = Blog.page(params[:page]).per(5)
+    @blogs = Blog.recent_blogs.page(params[:page]).per(5)
     @page_title = "My Portfolio Blog"
   end
 

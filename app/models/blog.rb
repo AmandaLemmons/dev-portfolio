@@ -8,6 +8,8 @@ class Blog < ApplicationRecord
   belongs_to :topic, optional: true
 
   has_many :comments, dependent: :destroy
+  scope :recent_blogs, -> {order(created_at: :desc)}
+
 
   def self.special_blogs
     all
@@ -16,4 +18,6 @@ class Blog < ApplicationRecord
   def self.featured_blogs
     limit(2)
   end
+
+
 end
