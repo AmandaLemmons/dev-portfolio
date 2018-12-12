@@ -1,8 +1,10 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
-  layout "blog"
-  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :toggle_status]}, site_admin: :all
+  before_action :set_sidebar_topics, except: [:create, :update, :destroy, :toggle_status]
 
+  layout "blog"
+
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :toggle_status]}, site_admin: :all
 
   def index
     if logged_in?(:site_admin)
@@ -71,11 +73,15 @@ class BlogsController < ApplicationController
   end
 
   private
-    def set_blog
-      @blog = Blog.friendly.find(params[:id])
-    end
+  def set_blog
+    @blog = Blog.friendly.find(params[:id])
+  end
 
-    def blog_params
-      params.require(:blog).permit(:title, :body, :topic_id)
-    end
+  def blog_params
+    params.require(:blog).permit(:title, :body, :topic_id)
+  end
+
+  def set_sidebar_topics
+    @sidebar_topics = Topic.with_blogs
+  end
 end
