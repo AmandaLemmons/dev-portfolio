@@ -1,0 +1,9 @@
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-md-8 blog-main">
+      <h1><%= @topic.title %> </h1>
+
+      <%= paginate @blogs %>
+      <%= render @blogs %>
+      <%= paginate @blogs %>
+    </div>

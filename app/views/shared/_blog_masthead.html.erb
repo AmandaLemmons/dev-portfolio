@@ -2,7 +2,12 @@
   <div class="container">
     <h1 class="blog-title"> My Blog </h1>
     <br>
-    <%= link_to 'New Blog', new_blog_path if logged_in?(:site_admin) %>
+    <span>
+      <%= link_to 'New Blog', new_blog_path if logged_in?(:site_admin) %> | 
+    </span>
+    <span>
+      <%= link_to 'Topics', topics_path %>
+    </span>
     <br>
   </div>
 </div>
