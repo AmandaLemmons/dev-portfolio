@@ -8,7 +8,7 @@ class Blog < ApplicationRecord
   belongs_to :topic, optional: true
 
   has_many :comments, dependent: :destroy
-  scope :recent_blogs, -> {order(created_at: :desc)}
+  scope :recent, -> {order(created_at: :desc)}
 
 
   def self.special_blogs
