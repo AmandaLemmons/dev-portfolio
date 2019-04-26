@@ -17,7 +17,7 @@ module ApplicationHelper
   end
 
   def copyright_generator
-    CopyRightViewTool::Renderer.copyright('Amanda Lemmons', '| Poco rights reserved')
+    CopyRightViewTool::Renderer.copyright('Amanda Lemmons', '| Poc rights reserved')
   end
 
   def nav_items
